@@ -1,0 +1,13 @@
+version: "2"
+services:
+  nfldb:
+    build:
+      context: .
+    depends_on:
+      - "postgres"
+    restart: always
+    command: ['./install/wait-for-postgres.sh', 'postgres', './scripts/nfldb-update', '--interval', '60' ]
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile-postgres

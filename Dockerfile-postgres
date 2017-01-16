@@ -1,0 +1,6 @@
+from postgres:alpine
+
+RUN wget http://burntsushi.net/stuff/nfldb/nfldb.sql.zip && \
+    unzip nfldb.sql.zip
+
+ADD install/init-db.sh /docker-entrypoint-initdb.d/init-db.sh
