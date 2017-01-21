@@ -14,3 +14,5 @@ ADD ./install/config.ini /usr/local/share/nfldb/config.ini
 RUN pip install -r requirements.txt && \
     python setup.py install && \
     apk del .build-deps
+
+CMD ["./scripts/nfldb-update", "--interval", "60" ]
